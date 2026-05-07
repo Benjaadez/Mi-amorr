@@ -66,7 +66,7 @@ const fotos = [
 let inicio = new Date("2025-06-20");
 let mostrar = false;
 
-/* CAJA INICIO */
+/* INICIO */
 function abrirPagina(){
 document.getElementById("inicio").style.display = "none";
 }
@@ -88,8 +88,7 @@ let hoy = new Date();
 
 if(!mostrar){
 let dias = Math.floor((hoy - inicio)/(1000*60*60*24));
-document.getElementById("contador").innerText =
-"❤️ " + dias + " días juntos ❤️";
+document.getElementById("contador").innerText = "❤️ " + dias + " días juntos ❤️";
 }else{
 let fin = new Date("2026-06-20");
 let d = Math.floor((fin - hoy)/(1000*60*60*24));
@@ -115,15 +114,16 @@ document.getElementById("foto-box").style.display = "block";
 /* CORAZONES */
 function crearCorazon(){
 let c = document.createElement("div");
+c.classList.add("corazon");
 c.innerHTML = "❤️";
-c.style.position = "absolute";
-c.style.left = Math.random()*100+"vw";
-c.style.top = "-50px";
-c.style.fontSize = (Math.random()*20+15)+"px";
-c.style.animation = "caer 6s linear";
+
+c.style.left = Math.random()*100 + "vw";
+c.style.fontSize = (Math.random()*15+10) + "px";
+c.style.animationDuration = (Math.random()*3+3) + "s";
+
 document.body.appendChild(c);
 
 setTimeout(()=>c.remove(),6000);
 }
 
-setInterval(crearCorazon,400);
+setInterval(crearCorazon,200);
